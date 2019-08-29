@@ -6,10 +6,17 @@ import mjnxka.factory.BeanFactory;
 import mjnxka.service.IAccountService;
 
 public class AccountServiceImpl implements IAccountService {
-    private int i=1;
-    private IAccountDao AccountDao = (AccountDaoImpl)BeanFactory.getBean("accountDao");
+
+    private IAccountDao accountDao = (AccountDaoImpl)BeanFactory.getBean("accountDao1");
+    {
+        //IAccountDao accountaa = (AccountDaoImpl)BeanFactory.getBean("accountDao");
+        System.out.println("123"+accountDao);
+    }
+    private int i = 1;
     public void saveAccount() {
-        AccountDao.saveAccount();
-        System.out.println(i);
+        //accountDao = (AccountDaoImpl)BeanFactory.getBean("accountDao");
+        //System.out.println("456"+accountDao);
+        accountDao.saveAccount();
+        System.out.println(i++);
     }
 }

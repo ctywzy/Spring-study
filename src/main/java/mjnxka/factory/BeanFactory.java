@@ -27,20 +27,20 @@ public class BeanFactory {
             InputStream in = BeanFactory.class.getClassLoader().getResourceAsStream("bean.properties");
             //System.out.println(in);
             props.load(in);
-
             beans = new HashMap<String, Object>();
             Enumeration el = props.keys();
-
-
             while(el.hasMoreElements()){
+//                String key = el.nextElement().toString();
+//                System.out.println(key);
                 String key = el.nextElement().toString();
-                //System.out.println(key);
+                //System.out.println("123"+key);
                 String beanPath = props.getProperty(key);
                 //System.out.println(beanPath);
+                //System.out.println(key);
                 Object obj = Class.forName(beanPath).newInstance();
+                //System.out.println("123"+obj);
                 beans.put(key,obj);
             }
-
         } catch (Exception e) {
             throw new ExceptionInInitializerError("初始化properties异常");
         }
@@ -51,7 +51,7 @@ public class BeanFactory {
     通过配置文件反射获取对象
      */
     public static Object getBean(String beanName){
-        //System.out.println(beans);
+        //System.out.println("abc"+beans.get(beanName));
         return beans.get(beanName);
     }
 }
