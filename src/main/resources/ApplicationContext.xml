@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="jnzz"></context:component-scan>
         <!--把对象创建交给spring-->
     <bean id="accountService" class="xkamjn.service.impl.AccountServiceImpl">
 
@@ -27,5 +31,25 @@
     </bean>
     <bean id="date" class="java.util.Date">
 
+    </bean>
+
+    <bean id="complex" class="zzjn.service.impl.Complex">
+        <property name="myList">
+            <array>
+                <value>AAA</value>
+                <value>BBB</value>
+            </array>
+        </property>
+        <property name="myStr">
+            <list>
+                <value>CCC</value>
+                <value>DDD</value>
+            </list>
+        </property>
+        <property name="myMap">
+            <map>
+                <entry key="test1" value="123"></entry>
+            </map>
+        </property>
     </bean>
 </beans>
