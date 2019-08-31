@@ -11,4 +11,21 @@
     <bean id = "accountDao" class="xkamjn.dao.impl.AccountDaoImpl">
 
     </bean>
+
+    <bean id="bookService" class="zzjn.service.impl.BookServiceImpl">
+
+        <constructor-arg index="0" value="mjn"/>
+        <constructor-arg index="1" value="18"/>
+        <constructor-arg index="2" ref="date"/>
+    </bean>
+
+    <bean id="bookService2" class="zzjn.service.impl.BookServiceImpl2">
+
+        <property name="name" value="zzjn"></property>
+        <property name="age" value="18"></property>
+        <property name="birthday" ref="date"></property>
+    </bean>
+    <bean id="date" class="java.util.Date">
+
+    </bean>
 </beans>
