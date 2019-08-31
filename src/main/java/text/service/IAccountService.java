@@ -16,4 +16,7 @@ public interface IAccountService {
     void updateAccount(Account account);
     //删除一个
     void deleteAccount(Integer accountId);
+    //转账账户，收账账户，金额
+    void transfer(String sourceName, String targetName, Float money);
+
 }

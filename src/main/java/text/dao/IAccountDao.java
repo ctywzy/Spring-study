@@ -15,4 +15,7 @@ public interface IAccountDao {
     void updateAccount(Account account);
     //删除一个
     void deleteAccount(Integer accountId);
+    //根据名称查账户
+    //单独一个返回，没有返回null，超过一个满足的抛异常
+    Account findAccountByName(String accountName);
 }
