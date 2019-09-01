@@ -43,7 +43,7 @@ public class TransactionManager {
     public void release(){
         try {
             connectionUtils.getThreadConnection().close();//连接关掉还回连接池
-            connectionUtils.removeConnection();//把连接和线程解绑，不接棒会造成线程还在，资源却没了
+            connectionUtils.removeConnection();//把连接和线程解绑，不接棒会造成线程还在，资源却没了,所以要把线程去了，否则是个无用线程
         } catch (SQLException e) {
             e.printStackTrace();
         }

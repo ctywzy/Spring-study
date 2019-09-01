@@ -9,7 +9,8 @@ public class Client {
         final Producer producer = new Producer();
         //producer.saleProduct(1000f);
 
-        IProducer proxyProduct = (IProducer) Proxy.newProxyInstance(producer.getClass().getClassLoader(), producer.getClass().getInterfaces(), new InvocationHandler() {
+        IProducer proxyProduct = (IProducer) Proxy.newProxyInstance(producer.getClass().getClassLoader(), producer.getClass().getInterfaces(),
+                new InvocationHandler() {
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 Object returnValue = null;
                 Float money = (Float) args[0];
